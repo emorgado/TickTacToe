@@ -6,10 +6,14 @@ import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 public class TicTacToeTest {
 
+	@Rule
+    public ExpectedException exception = ExpectedException.none();
 	private TicTacToe ticTacToe;
 	private String nomeJogadorX;
 	private String nomeJogadorO;
@@ -59,5 +63,20 @@ public class TicTacToeTest {
 		String nome = "Patricia Ines";
 		ticTacToe.setJogadorO( nome );
 		assertEquals( nome, ticTacToe.getJogadorO() );
+	}
+	
+	@Test
+	public void jogadorInformouUmaPosicaoInexistente(){
+		
+		exception.expect(RuntimeException.class);
+		ticTacToe.jogadorXJoga( 5 );		
+		
+	}
+	
+	@Test
+	public void jogadorInformouUmaPosicaoExistente(){
+		
+		ticTacToe.jogadorXJoga( 3 );		
+		
 	}
 }

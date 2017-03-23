@@ -4,6 +4,8 @@ public class TicTacToe {
 
 	private String jogadorX;
 	private String jogadorO;
+	
+	private Character[][] board = { { '\0', '\0', '\0' }, { '\0', '\0', '\0' }, { '\0', '\0', '\0' } };
 
 	public TicTacToe(String jogadorX, String jogadorO ) {
 		this.jogadorX = jogadorX;
@@ -26,5 +28,9 @@ public class TicTacToe {
 
 	public void setJogadorO(String jogadorO) {
 		this.jogadorO = jogadorO;
+	}
+
+	public void jogadorXJoga(int i) {
+		throw new RuntimeException("Erro posição não existente");		
 	}
 }
